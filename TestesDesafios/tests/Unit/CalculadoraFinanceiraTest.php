@@ -8,25 +8,41 @@ class CalculadoraFinanceiraTest extends TestCase
     public function testCalcularJurosSimples()
     {
         $classe = new CalculadoraFinanceira();
-        $this->assertEquals(4200, $classe->calcularJurosSimples(10000, 12, 3.5));
+        $this->assertEquals(5640, $classe->calcularJurosSimples(10000, 12, 4.7));
+    }
+
+    public function testCalcularJurosSimplesException()
+    {
+        $classe = new CalculadoraFinanceira();
+        $this->expectException(Exception::class);
+        $classe->calcularJurosSimples("abc", 1, 2);
     }
 
     public function testCalcularJurosCompostos()
     {
         $classe = new CalculadoraFinanceira();
-        $this->assertEquals(285.21, round($classe->calcularJurosCompostos(667.83, 7.86, 4.7), 2));
+        $this->assertEquals(500, round($classe->calcularJurosCompostos(5000, 10, 1), 2));
     }
 
-    /*
-    public function testCalcularAmortizacaoSAC()
+    public function testCalcularJurosCompostosException()
     {
-        
+        $classe = new CalculadoraFinanceira();
+        $this->expectException(Exception::class);
+        $classe->calcularJurosCompostos("abc", 1, 2);
     }
-    
-    public function testCalcularAmortizacaoPrice()
-    {
-        
+
+    public function testTipoInvalido() {
+        $classe = new CalculadoraFinanceira();
+        $this->expectException(Exception::class);
+        $classe->calcularAmortizacao(10,4,2,"Inválido");
     }
-    */
+
+    public function testCalcularAmortizacaoSAC() {
+       
+    }
+
+    public function testCalcularAmortizacaoPrice() {
+       
+    }
 }
 ?>
