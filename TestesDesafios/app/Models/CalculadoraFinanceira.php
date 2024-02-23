@@ -20,21 +20,20 @@ class CalculadoraFinanceira extends Model
     {
         if($capital < 0 || $taxa < 0 || $tempo < 0||!is_numeric($capital)||!is_numeric($taxa)||!is_numeric($tempo)){
             throw new Exception("Os valores não podem ser menores que zero e todos precisam ser numéricos!");
-        } else{
+        } 
             $jurosSimples = ($capital * ($taxa/100) * $tempo);
             return $jurosSimples;
-        }
+        
     }
 
     public function calcularJurosCompostos($capital, $taxa, $tempo)
     {
         if($capital < 0 || $taxa < 0 || $tempo < 0||!is_numeric($capital)||!is_numeric($taxa)||!is_numeric($tempo)){
             throw new Exception("Os valores não podem ser menores que zero e todos precisam ser numéricos!");
-        }else{
+        }
             $montante = $capital * pow(1 + $taxa / 100, $tempo);
             $jurosCompostos = $montante - $capital;
             return $jurosCompostos;
-        }
     }
 
     public function calcularAmortizacao($capital, $taxa, $tempo, $tipo)
