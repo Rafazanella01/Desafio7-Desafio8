@@ -78,11 +78,13 @@ class CalculadoraFinanceiraTest extends TestCase
         $this->assertEquals(0, end($resultado)['saldoDevedor']);
 
         // Verificar se o valor da primeira parcela é correto
+        $this->assertEquals(916.67, $resultado[0]['parcela']);
         $this->assertEquals(833.33, $resultado[0]['amortizacao']);
         $this->assertEquals(83.33, round($resultado[0]['juros'], 2)); 
         $this->assertEquals(9166.67, $resultado[0]['saldoDevedor']);
 
         // Verificar se o valor da última parcela é correto
+        $this->assertEquals(840.28, $resultado[11]['parcela']);
         $this->assertEquals(833.33, round($resultado[11]['amortizacao'], 2)); 
         $this->assertEquals(6.94, round($resultado[11]['juros'], 2)); 
         $this->assertEquals(0, $resultado[11]['saldoDevedor']);
@@ -100,11 +102,13 @@ class CalculadoraFinanceiraTest extends TestCase
         $this->assertEquals(0, end($resultado)['saldoDevedor']);
 
         // Verificar se o valor da primeira parcela é correto
+        $this->assertEquals(879.16, $resultado[0]['parcela']);
         $this->assertEquals(795.83, round($resultado[0]['amortizacao'], 2)); 
         $this->assertEquals(83.33, round($resultado[0]['juros'], 2)); 
         $this->assertEquals(9204.17, $resultado[0]['saldoDevedor']);
 
         // Verificar se o valor da última parcela é correto
+        $this->assertEquals(879.16, $resultado[11]['parcela']);
         $this->assertEquals(871.89, round($resultado[11]['amortizacao'], 2)); 
         $this->assertEquals(7.27, round($resultado[11]['juros'], 2)); 
         $this->assertEquals(0, $resultado[11]['saldoDevedor']);
