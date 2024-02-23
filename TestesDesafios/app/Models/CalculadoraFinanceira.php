@@ -55,10 +55,10 @@ class CalculadoraFinanceira extends Model
                 $juros = $saldoDevedor * $taxaMensal;
             }else if($tipo === 'Price'){
                 $parcelaFixa = $capital * ($taxaMensal * pow(1 + $taxaMensal, $tempo * 12)) / (pow(1 + $taxaMensal, $tempo * 12) - 1);
-
-                $amortizacao = $parcelaFixa - ($saldoDevedor * $taxaMensal);
-
                 $juros = $saldoDevedor * $taxaMensal;
+
+                $amortizacao = $parcelaFixa - $juros;
+
             } else{
                 throw new Exception("O tipo precisa ser SAC ou Price!");
             }
