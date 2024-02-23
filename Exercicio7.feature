@@ -19,8 +19,3 @@
     Dado que eu tenho uma Calculadora Financeira
     Quando eu calcular amortização com um capital de 20000, uma taxa de 7, um tempo de 3.5 e um tipo de amortização Price
     Então eu devo obter um array contendo o total de juros pagos e o valor das parcelas de amortização
-
-    Exemplos:
-      | capital | taxa | tempo | tipo    | total_juros | parcela_amortizacao |
-      | 10000   | 5    | 2     | 'SAC'   | 1500        | [500, 500, 500, 500] |
-      | 20000   | 7    | 3.5   | 'Price' | 3500        | [1200, 1100, 800, 400] |
